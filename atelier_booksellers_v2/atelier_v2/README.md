@@ -1,98 +1,70 @@
-# 📖 Atelier Booksellers — Smart Bookstore Management System
+# 📖 Andalus Booksellers
 
-A premium desktop bookstore management application.
-**Python · PyQt5 · SQLite · Matplotlib**
+Andalus Booksellers is a desktop bookstore management application built with Python and PyQt5. It helps a small bookstore manage inventory, process sales, review analytics, and track customer requests from a single polished interface.
+
+**Tech stack:** Python · PyQt5 · SQLite · Matplotlib · ReportLab
 
 ---
 
-## Quick Start
+## Quick start
+
+From the project folder, install the requirements and launch the app:
 
 ```bash
-pip install PyQt5 matplotlib
+pip install -r requirements.txt
 python main.py
 ```
 
-The database is created automatically on first run with **30 books** pre-seeded.
+On first run, the app creates the SQLite database automatically and seeds it with sample genres, suppliers, books, and sales data.
 
 ---
 
-## Optional: Premium Typography
+## What the app includes
 
-Download these font files and place them in the `./fonts/` folder before running.
-The app will auto-detect and use them — no config needed.
-
-| Font              | URL                                          |
-|-------------------|----------------------------------------------|
-| Playfair Display  | fonts.google.com/specimen/Playfair+Display   |
-| Inter             | fonts.inter.ui                               |
-
-Without them the app falls back to the best available system font (Georgia / Segoe UI).
+- Dashboard with quick KPIs and a searchable book grid
+- Catalogue management for books, prices, stock levels, discounts, and cover images
+- Sales screen for fast checkout and cart-based transactions
+- Sales history with export support and return processing
+- Inventory overview with low-stock visibility
+- Insights and charts for revenue and book performance
+- Genres, suppliers, coupons, and customer request management
+- ISBN lookup screen for book lookups
 
 ---
 
-## Project Structure
+## Project structure
 
-```
+```text
 atelier_v2/
-├── main.py                 ← Entry point. Splash, DB init, launch.
+├── main.py
 ├── requirements.txt
-├── atelier.db              ← SQLite database (auto-created)
-│
+├── atelier.db                # SQLite database (created automatically)
 ├── assets/
-│   └── theme.py            ← All design tokens: colours, fonts, spacing, shadows
-│
-├── utils/
-│   └── database.py         ← Complete backend: all SQL, CRUD, analytics
-│
+│   └── theme.py              # App styling and design tokens
 ├── ui/
-│   ├── widgets.py          ← Every reusable component
-│   ├── main_window.py      ← App shell: sidebar, header, page stack, navigation
-│   ├── dashboard.py        ← KPI cards + genre filter + responsive book grid
-│   ├── catalogue.py        ← Book table, Add/Edit/Delete, image upload
-│   ├── sales.py            ← POS: book selector, live cart, tax, confirm sale
-│   ├── inventory.py        ← Stock overview, mini cards, restock dialog
-│   ├── insights.py         ← Analytics charts (pie, bar, line, top-3 list)
-│   └── management.py       ← Genres, Suppliers, Sales History screens
-│
-├── fonts/                  ← Drop .ttf files here for premium typography
-└── images/
-    └── books/              ← Book cover images stored here after upload
+│   ├── dashboard.py          # Dashboard screen
+│   ├── catalogue.py          # Book catalogue and CRUD tools
+│   ├── sales.py              # Point-of-sale flow
+│   ├── inventory.py          # Inventory and restocking
+│   ├── insights.py           # Analytics charts
+│   ├── management.py         # Genres, suppliers, coupons, sales history
+│   ├── requests.py           # Customer requests / wishlist flow
+│   ├── isbn_lookup.py        # ISBN lookup screen
+│   ├── main_window.py        # Main app shell and navigation
+│   └── widgets.py            # Reusable UI components
+└── utils/
+    └── database.py           # Database schema, CRUD logic, and seed data
 ```
 
 ---
 
-## Features
+## Optional typography
 
-| Screen          | Capability                                                        |
-|-----------------|-------------------------------------------------------------------|
-| Dashboard       | Live KPIs, % vs yesterday, genre chips, responsive book grid      |
-| Catalogue       | Full CRUD table, cover image upload, search                       |
-| Genres          | Add / delete genres (safe cascade)                                |
-| Suppliers       | Add / delete suppliers with contact                               |
-| New Sale        | Book selector, detail card, live cart, 5% tax, confirm            |
-| Sales History   | Full transaction log, search by title                             |
-| Inventory       | 4 stock mini-cards, low-stock filter, per-book restock            |
-| Insights        | Genre pie, top-5 bar, 7-day revenue trend, top-3 favourites       |
+The app can use custom fonts if you place TrueType font files in a local fonts folder. If they are not present, it will fall back to the best available system font automatically.
 
 ---
 
-## Adding Cover Images
+## Notes
 
-1. Go to **Catalogue**
-2. Click **📷 Image** on any row
-3. Pick a `.jpg`, `.png`, or `.webp` file
-4. Image is saved to `images/books/` and displayed everywhere
-
----
-
-## Design System
-
-| Token         | Value     | Usage                          |
-|---------------|-----------|--------------------------------|
-| Background    | `#F7F4ED` | Ivory canvas                   |
-| Foreground    | `#19241F` | Forest ink body text           |
-| Card          | `#FBF8F1` | Card surfaces                  |
-| Primary       | `#1E3D2F` | Buttons, headings, sidebar row |
-| Accent        | `#C99A3D` | Gold — badges, genre labels    |
-| Destructive   | `#B83D2E` | Burgundy — low stock, delete   |
-| Sidebar       | `#172F24` | Left nav background            |
+- Cover images can be added from the Catalogue screen and stored under the app's image folder.
+- The interface is designed for a desktop workflow and is best used in a normal desktop environment.
